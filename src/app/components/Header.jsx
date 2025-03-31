@@ -1,9 +1,14 @@
+"use client";
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from "next/navigation";
 import DarkMode from './DarkMode'
+import { Button } from '@mui/material';
 import { SignedIn, SignedOut, SignInButton,UserButton } from '@clerk/nextjs'
 
+
 export default function Header() {
+const router = useRouter();
   return (
     <div className='flex justify-between items-center p-3 max-w-6xl mx-auto bg-white text-black'>
         <ul className='flex gap-4'>
@@ -17,7 +22,7 @@ export default function Header() {
                 <Link href={'/'}>Home</Link>
             </li>
             <li>
-                <Link href={'/about'}>About</Link>
+                <Button onClick={() => router.push('/about')}>About</Button>
             </li>
             
 
